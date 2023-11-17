@@ -7,17 +7,28 @@ namespace ChallengesWithTestsMark8
     {
         public bool ArrayContainsAFalse(bool[] vals)
         {
-            throw new NotImplementedException();
+            if (vals == null || vals.Length == 0) return false;
+            foreach(bool val in vals)
+            {
+                if (val == false) return true;
+            }
+            return false;
         }
 
         public bool IsSumOfOddsOdd(IEnumerable<int> numbers)
         {
-            throw new NotImplementedException();
+            int sumOfOdds = 0;
+            if (numbers == null) { return false; }
+            foreach(int number in numbers)
+            {
+                sumOfOdds += (number % 2 == 0) ? 0 : number;
+            }
+            return (sumOfOdds % 2 == 0) ? false : true;
         }
 
         public bool PasswordContainsUpperLowerAndNumber(string password)
         {
-            throw new NotImplementedException();
+            
         }
 
         public char GetFirstLetterOfString(string val)
