@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ChallengesWithTestsMark8
 {
@@ -28,37 +29,42 @@ namespace ChallengesWithTestsMark8
 
         public bool PasswordContainsUpperLowerAndNumber(string password)
         {
-            
+            if (password.Any(char.IsUpper) && password.Any(char.IsLower) && password.Any(char.IsNumber))
+            { return true; }
+            else { return false; }
         }
 
         public char GetFirstLetterOfString(string val)
         {
-            throw new NotImplementedException();
+            return val[0];
         }
 
         public char GetLastLetterOfString(string val)
         {
-            throw new NotImplementedException();
+            return val[val.Length - 1];
         }
 
         public decimal Divide(decimal dividend, decimal divisor)
         {
-            throw new NotImplementedException();
+            if (divisor == 0) { return 0; }
+            return dividend / divisor;
         }
 
         public int LastMinusFirst(int[] nums)
         {
-            throw new NotImplementedException();
+            return nums[nums.Length - 1] - nums[0];
         }
 
         public int[] GetOddsBelow100()
         {
-            throw new NotImplementedException();
+            return Enumerable.Range(1,100).Where(i => i % 2 != 0).ToArray();
         }
 
-        public void ChangeAllElementsToUppercase(string[] words)
+        public string[] ChangeAllElementsToUppercase(string[] words)
         {
-            throw new NotImplementedException();
+            List<string> newList = new List<string>();
+            words.ToList().ForEach(word => newList.Add(word.ToUpper()));
+            return newList.ToArray();
         }
     }
 }
